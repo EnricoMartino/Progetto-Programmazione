@@ -12,7 +12,6 @@ public class Appartemento {
 	
 	public Appartemento(String codice, String ubicazione, String area_di_competenza, String descrizione_via, int civico,
 			int codice_via) {
-		super();
 		this.codice = codice;
 		this.ubicazione = ubicazione;
 		this.area_di_competenza = area_di_competenza;
@@ -20,6 +19,7 @@ public class Appartemento {
 		this.civico = civico;
 		this.codice_via = codice_via;
 	}
+	
 	public String getCodice() {
 		return codice;
 	}
