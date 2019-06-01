@@ -4,6 +4,8 @@ public class locazione {
 	double longitudine;
 	double latitudine;
 	double location;
+	
+	
 //generate constructor of class "locazione"
 	public locazione(double longitudine, double latitudine, double location) {
 		super();

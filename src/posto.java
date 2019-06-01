@@ -3,6 +3,8 @@ public class posto {
 	int posti_abitativi;
 	int posti_letto;
 	int municipio;
+	
+	
 //generate constructor of class "posto"
 	public posto(int posti_abitativi, int posti_letto, int municipio) {
 		super();

@@ -6,6 +6,8 @@ public class Appartemento {
 	String descrizione_via;
 	int civico;
 	int codice_via;
+	
+	
 	//generate constructor of class "Appartamento" 
 	public Appartemento(String codice, String ubicazione, String area_di_competenza, String descrizione_via, int civico,
 			int codice_via) {
