@@ -1,5 +1,5 @@
 
-public class Appartemento {
+public class Appartamento {
 	String codice;
 	String ubicazione;
 	String area_di_competenza;
@@ -9,7 +9,7 @@ public class Appartemento {
 	
 	
 	//generate constructor of class "Appartamento" 
-	public Appartemento(String codice, String ubicazione, String area_di_competenza, String descrizione_via, int civico,
+	public Appartamento(String codice, String ubicazione, String area_di_competenza, String descrizione_via, int civico,
 			int codice_via) {
 		this.codice = codice;
 		this.ubicazione = ubicazione;
