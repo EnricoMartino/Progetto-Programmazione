@@ -1,12 +1,12 @@
 
-public class posto {
+public class Posto {
 	int posti_abitativi;
 	int posti_letto;
 	int municipio;
 	
 	
 //generate constructor of class "posto"
-	public posto(int posti_abitativi, int posti_letto, int municipio) {
+	public Posto(int posti_abitativi, int posti_letto, int municipio) {
 		super();
 		this.posti_abitativi = posti_abitativi;
 		this.posti_letto = posti_letto;
@@ -35,5 +35,10 @@ public class posto {
 
 	public void setMunicipio(int municipio) {
 		this.municipio = municipio;
+	}
+	@Override
+	public String toString() {
+		return "posto [posti_abitativi=" + posti_abitativi + ", posti_letto=" + posti_letto + ", municipio=" + municipio
+				+ "]";
 	}
 }
