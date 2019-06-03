@@ -1,5 +1,5 @@
 
-public class Locazione {
+public class locazione {
 
 	double longitudine;
 	double latitudine;
@@ -7,7 +7,7 @@ public class Locazione {
 	
 	
 //generate constructor of class "locazione"
-	public Locazione(double longitudine, double latitudine, double location) {
+	public locazione(double longitudine, double latitudine, double location) {
 		super();
 		this.longitudine = longitudine;
 		this.latitudine = latitudine;
