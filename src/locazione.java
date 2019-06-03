@@ -1,5 +1,5 @@
 
-public class locazione {
+public class Locazione {
 
 	double longitudine;
 	double latitudine;
@@ -7,7 +7,7 @@ public class locazione {
 	
 	
 //generate constructor of class "locazione"
-	public locazione(double longitudine, double latitudine, double location) {
+	public Locazione(double longitudine, double latitudine, double location) {
 		super();
 		this.longitudine = longitudine;
 		this.latitudine = latitudine;
@@ -31,6 +31,11 @@ public class locazione {
 	}
 	public void setLocation(double location) {
 		this.location = location;
+	}
+	
+	@Override
+	public String toString() {
+		return "locazione [longitudine=" + longitudine + ", latitudine=" + latitudine + ", location=" + location + "]";
 	}
 
 }
