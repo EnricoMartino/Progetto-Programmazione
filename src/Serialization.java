@@ -4,9 +4,12 @@ import java.util.*;
 public class Serialization {
 	final static String COMMA_DELIMITER = ";";
 
+	/*public Serialization() {
+		// TODO Auto-generated constructor stub
+	}*/
 	public static void main(String[] args) {
-		Appartamento a = new Appartamento("VA/267", "Via MASOTTO UMBERTO N. 1 (z.d. 4)",
-				"ATTIVITA RICETTIVE - Case vacanza", "Via MASOTTO UMBERTO", 1, 3283);
+		Appartamento a = new Appartamento("codice", "ubicazione",
+				"area di competenza", "descrizione via", 1, 2);
 
 		try {
 			FileOutputStream fileOut = new FileOutputStream("Appartamento.ser");
