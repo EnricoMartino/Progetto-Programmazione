@@ -1,5 +1,6 @@
+import java.io.*;
 
-public class Appartamento {
+public class Appartamento implements Serializable {
 	String codice;
 	String ubicazione;
 	String area_di_competenza;
