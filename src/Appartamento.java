@@ -20,7 +20,6 @@ public class Appartamento implements Serializable {
 	public Appartamento(String codice, String ubicazione, String area_di_competenza, String descrizione_via, int civico,
 			int codice_via, int posti_abitativi, int posti_letto, int municipio, double longitudine, double latitudine,
 			double location) {
-		super();
 		this.codice = codice;
 		this.ubicazione = ubicazione;
 		this.area_di_competenza = area_di_competenza;
@@ -33,6 +32,10 @@ public class Appartamento implements Serializable {
 		this.longitudine = longitudine;
 		this.latitudine = latitudine;
 		this.location = location;
+	}
+	
+	public Appartamento()  {
+		//Constructor
 	}
 	@Override
 	public String toString() {
