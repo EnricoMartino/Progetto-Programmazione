@@ -4,28 +4,28 @@ import java.util.*;
 public class Serialization {
 	final static String COMMA_DELIMITER = ";";
 
-	/*public Serialization() {
+	public Serialization() {
 		// TODO Auto-generated constructor stub
-	}*/
-	public static void main(String[] args) {
-		Appartamento a = new Appartamento("codice", "ubicazione",
-				"area di competenza", "descrizione via", 1, 2);
+	}
+	public static void main(String[] args) throws NotSerializableException {
+		Appartamento a1 = new Appartamento("codice", "ubicazione",
+				"area di competenza", "descrizione via", 1, 2,0,0,0,0.1,0.2,0.3);
 
 		try {
 			FileOutputStream fileOut = new FileOutputStream("Appartamento.ser");
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
-			out.writeObject(a);
+			out.writeObject(a1);
 			out.close();
 			fileOut.close();
 		} catch (IOException i) {
 			i.printStackTrace();
 		}
 
-		Appartamento a1 = null;
+		Appartamento a2 = null;
 		try {
 			FileInputStream fileIn = new FileInputStream("Appartamento.ser");
 			ObjectInputStream in = new ObjectInputStream(fileIn);
-			a1 = (Appartamento) in.readObject();
+			a2 = (Appartamento) in.readObject();
 			in.close();
 			fileIn.close();
 		} catch (IOException i) {
@@ -46,7 +46,8 @@ public class Serialization {
 				System.out.println(values.length);
 				records.add(Arrays.asList(values));
 				v.add(new Appartamento(values[0], values[1], values[2], values[3], Integer.parseInt(values[4]),
-						Integer.parseInt(values[5])));
+						Integer.parseInt(values[5]),Integer.parseInt(values[6]),Integer.parseInt(values[6]),Integer.parseInt(values[6]),
+						Double.parseDouble(values[7]), Double.parseDouble(values[8]),Double.parseDouble(values[9])));
 			}
 			br.close();
 		} catch (IOException i) {
