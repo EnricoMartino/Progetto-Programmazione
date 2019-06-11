@@ -5,21 +5,21 @@ public class Appartamento implements Serializable {
 	String ubicazione;
 	String area_di_competenza;
 	String descrizione_via;
-	int civico;
-	int codice_via;
-	int posti_abitativi;
-	int posti_letto;
-	int municipio;
-	double longitudine;
-	double latitudine;
-	double location;
+	String civico;
+	String codice_via;
+	String posti_abitativi;
+	String  posti_letto;
+	String municipio;
+	String longitudine;
+	String latitudine;
+	String location;
 	
 	
 	
 	//generate constructor of class "Appartamento" 
-	public Appartamento(String codice, String ubicazione, String area_di_competenza, String descrizione_via, int civico,
-			int codice_via, int posti_abitativi, int posti_letto, int municipio, double longitudine, double latitudine,
-			double location) {
+	public Appartamento(String codice, String ubicazione, String area_di_competenza, String descrizione_via, String civico,
+			String codice_via, String posti_abitativi, String posti_letto, String municipio, String longitudine, String latitudine,
+			String location) {
 		this.codice = codice;
 		this.ubicazione = ubicazione;
 		this.area_di_competenza = area_di_competenza;
@@ -78,55 +78,55 @@ public class Appartamento implements Serializable {
 		this.descrizione_via = descrizione_via;
 	}
 
-	public int getCivico() {
+	public String getCivico() {
 		return civico;
 	}
 
-	public void setCivico(int civico) {
+	public void setCivico(String civico) {
 		this.civico = civico;
 	}
 
-	public int getCodice_via() {
+	public String getCodice_via() {
 		return codice_via;
 	}
 
-	public void setCodice_via(int codice_via) {
+	public void setCodice_via(String codice_via) {
 		this.codice_via = codice_via;
 	}
-	public int getPosti_abitativi() {
+	public String getPosti_abitativi() {
 		return posti_abitativi;
 	}
-	public void setPosti_abitativi(int posti_abitativi) {
+	public void setPosti_abitativi(String posti_abitativi) {
 		this.posti_abitativi = posti_abitativi;
 	}
-	public int getPosti_letto() {
+	public String getPosti_letto() {
 		return posti_letto;
 	}
-	public void setPosti_letto(int posti_letto) {
+	public void setPosti_letto(String posti_letto) {
 		this.posti_letto = posti_letto;
 	}
-	public int getMunicipio() {
+	public String getMunicipio() {
 		return municipio;
 	}
-	public void setMunicipio(int municipio) {
+	public void setMunicipio(String municipio) {
 		this.municipio = municipio;
 	}
-	public double getLongitudine() {
+	public String getLongitudine() {
 		return longitudine;
 	}
-	public void setLongitudine(double longitudine) {
+	public void setLongitudine(String longitudine) {
 		this.longitudine = longitudine;
 	}
-	public double getLatitudine() {
+	public String getLatitudine() {
 		return latitudine;
 	}
-	public void setLatitudine(double latitudine) {
+	public void setLatitudine(String latitudine) {
 		this.latitudine = latitudine;
 	}
-	public double getLocation() {
+	public String getLocation() {
 		return location;
 	}
-	public void setLocation(double location) {
+	public void setLocation(String location) {
 		this.location = location;
 	}
 

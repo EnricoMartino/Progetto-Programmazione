@@ -9,7 +9,7 @@ public class Serialization {
 	}
 	public static void main(String[] args) throws NotSerializableException {
 		Appartamento a1 = new Appartamento("codice", "ubicazione",
-				"area di competenza", "descrizione via", 1, 2,0,0,0,0.1,0.2,0.3);
+				"area di competenza", "descrizione via", "civico", "codice via","posti abitativi","posti letto","municipio","longit","latit","location");
 
 		try {
 			FileOutputStream fileOut = new FileOutputStream("Appartamento.ser");
@@ -45,9 +45,8 @@ public class Serialization {
 				String[] values = line.split(COMMA_DELIMITER);
 				System.out.println(values.length);
 				records.add(Arrays.asList(values));
-				v.add(new Appartamento(values[0], values[1], values[2], values[3], Integer.parseInt(values[4]),
-						Integer.parseInt(values[5]),Integer.parseInt(values[6]),Integer.parseInt(values[6]),Integer.parseInt(values[6]),
-						Double.parseDouble(values[7]), Double.parseDouble(values[8]),Double.parseDouble(values[9])));
+				v.add(new Appartamento(values[0], values[1], values[2], values[3], values[4],
+						values[5],values[6],values[7],values[8],values[9], values[10],values[11]));
 			}
 			br.close();
 		} catch (IOException i) {
