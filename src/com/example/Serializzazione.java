@@ -9,12 +9,14 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Vector;
+import java.io.*;
+import java.util.*;
 
 public class Serializzazione {
 	 
 		public static void main(String[] args) {
 		
-		  String csvFile = "D:\\GitHub\\Progetto-Programmazione\\UnivPm.csv";
+		  String csvFile= "UnivPm.csv";
 		  List<Appartamento> lista =new ArrayList<>();
 		  String line = ""; String cvsSplitBy = ";";
 		  
@@ -42,7 +44,23 @@ public class Serializzazione {
 		 }catch (IOException e) { 
 			  e.printStackTrace(); 
 			  }
-		
+		// stampa su file l'elenco degli appartamenti
+		  Appartamento a = new Appartamento("Codice","Ubicazione","Area di Competenza","Descrizione","Civico",
+				  "Codice via","Posti Abitativi","Posti Letto","Municipio","Longitudine","Latitudine","Location");
+		  
+		  		try {
+		  			FileOutputStream fileOut = new FileOutputStream("appartamento.ser");
+		  			ObjectOutputStream out = new ObjectOutputStream(fileOut);
+		  			out.writeObject(a);
+		  			out.close();
+		  			fileOut.close();
+		  			System.out.printf("Serialized data is saved in appartamento.ser");
+		  		} catch (IOException i) {
+		  			i.printStackTrace();
+		  		}
+		  
+		  
+		  
 				 
 		}	
 		

@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
-import org.json.simple.JSONObject;
+//import org.json.simple.JSONObject;
 
 public class Metadati {
 	private static final String COMMA_DELIMITER = ";";
