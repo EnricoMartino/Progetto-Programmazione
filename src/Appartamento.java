@@ -1,4 +1,6 @@
 import java.io.*;
+import java.util.List;
+import java.util.List.*;
 
 public class Appartamento implements Serializable {
 	String codice;
