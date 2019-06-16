@@ -7,12 +7,12 @@ import java.util.List;
 
 //import org.json.simple.JSONObject;
 
-public class Metadati {
+public class Metadata {
 	private static final String COMMA_DELIMITER = ";";
 	private static final String JSON_FILE_NAME = "json-metadata.json";
 	private List<String> firstLine;
 	
-	public Metadati() {
+	public Metadata() {
 		String line = "";
 		try {
 			 line = new BufferedReader(new FileReader("UnivPm.csv")).readLine();
