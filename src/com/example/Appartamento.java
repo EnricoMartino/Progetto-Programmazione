@@ -1,7 +1,6 @@
 package com.example;
 import java.io.*;
-import java.util.List;
-import java.util.List.*;
+
 
 
 public class Appartamento implements Serializable {
@@ -41,14 +40,18 @@ public class Appartamento implements Serializable {
 	public Appartamento( final String[] home)  {
 		this(home[0],home[1],home[2],home[3],home[4],home[5],home[6],home[7],home[8],home[9],home[10],home[11]);
 	}
+	
+	public Appartamento() {
+		super();
+	}
+
 	@Override
 	public String toString() {
-		return "Appartamento [codice=" + codice + ", ubicazione=" + ubicazione + ", area_di_competenza="
-				+ area_di_competenza + ", descrizione_via=" + descrizione_via + ", civico=" + civico + ", codice_via="
-				+ codice_via + ", posti_abitativi=" + posti_abitativi + ", posti_letto=" + posti_letto + ", municipio="
-				+ municipio + ", longitudine=" + longitudine + ", latitudine=" + latitudine + ", location=" + location
-				+ "]";
-	}
+		return "\"codice\": \"" + codice + "\",\n \"ubicazione\": \"" + ubicazione + "\",\n \"area_di_competenza\": \""
+				+ area_di_competenza + "\",\n \"descrizione_via\": \"" + descrizione_via + "\",\n \"civico\": \"" + civico + "\",\n \"codice_via\": \""
+				+ codice_via + "\",\n \"posti_abitativi\": \"" + posti_abitativi + "\"\n \"posti_letto\": \"" + posti_letto + "\",\n \" municipio\": \""
+					+ municipio + "\",\n \"longitudine\": \"" + longitudine + "\",\n \"latitudine\": \"" + latitudine + "\",\n \"location\": \"" + location + "\"\n";
+		}
 	//generate getters and setters of class "Appartamento"
 	public String getCodice() {
 		return codice;
@@ -133,5 +136,5 @@ public class Appartamento implements Serializable {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-
+	
 }
