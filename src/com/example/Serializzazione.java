@@ -1,21 +1,17 @@
 package com.example;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
-import java.util.Vector;
 import java.io.*;
-import java.util.*;
+
 
 public class Serializzazione {
-	 
-		public static void main(String[] args) {
-		
+	
+	public List<Appartamento> serialize(){
+
 		  String csvFile= "UnivPm.csv";
 		  List<Appartamento> lista =new ArrayList<>();
 		  String line = ""; String cvsSplitBy = ";";
@@ -23,6 +19,7 @@ public class Serializzazione {
 		  try {
 		  
 		  BufferedReader br = new BufferedReader(new FileReader(csvFile)); 
+		  br.readLine();//salto la prima riga
 		  while ((line= br.readLine()) != null) {
 		  
 		  String[] home = line.split(cvsSplitBy,13);
@@ -35,8 +32,9 @@ public class Serializzazione {
 		  home[11] + "]");
 		  
 		  lista.add(new Appartamento(home));
+		  System.out.println(lista.size());
 		  
-		  
+		  System.out.println();
 		  } br.close();
 		  
 		  } catch (FileNotFoundException e) {
@@ -44,23 +42,27 @@ public class Serializzazione {
 		 }catch (IOException e) { 
 			  e.printStackTrace(); 
 			  }
-		// stampa su file l'elenco degli appartamenti
-		  Appartamento a = new Appartamento("Codice","Ubicazione","Area di Competenza","Descrizione","Civico",
-				  "Codice via","Posti Abitativi","Posti Letto","Municipio","Longitudine","Latitudine","Location");
-		  
-		  		try {
-		  			FileOutputStream fileOut = new FileOutputStream("appartamento.ser");
-		  			ObjectOutputStream out = new ObjectOutputStream(fileOut);
-		  			out.writeObject(a);
-		  			out.close();
-		  			fileOut.close();
-		  			System.out.printf("Serialized data is saved in appartamento.ser");
-		  		} catch (IOException i) {
-		  			i.printStackTrace();
-		  		}
-		  
-		  
-		  
+
+		  return lista;
+	}
+	 
+	public void outputfile(final List<Appartamento> lista) {
+		try {
+  			FileOutputStream fileOut = new FileOutputStream("appartamento.ser");
+  			ObjectOutputStream out = new ObjectOutputStream(fileOut);
+  			out.writeObject(lista);
+  			out.close();
+  			fileOut.close();
+  			System.out.printf("Serialized data is saved in appartamento.ser");
+  		} catch (IOException i) {
+  			i.printStackTrace();
+  		}
+	}
+		public static void main(String[] args) {
+		
+			Serializzazione s=  new Serializzazione();	
+			s.outputfile(s.serialize());
+		 
 				 
 		}	
 		
