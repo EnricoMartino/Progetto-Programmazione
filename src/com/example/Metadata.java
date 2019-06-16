@@ -5,11 +5,11 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
-//import org.json.simple.JSONObject;
+
 
 public class Metadata {
 	private static final String COMMA_DELIMITER = ";";
-	private static final String JSON_FILE_NAME = "json-metadata.json";
+	private static final String JSON_FILE_NAME = "getMetadata.json";
 	private List<String> firstLine;
 	
 	public Metadata() {
@@ -24,7 +24,7 @@ public class Metadata {
 		
 	}
 	
-	public void toJSon() throws ClassNotFoundException {
+	public void toJSonMetadata() throws ClassNotFoundException {
 		try {
 			@SuppressWarnings("rawtypes")
 			Class c=Class.forName("com.example.Appartamento");
@@ -35,9 +35,9 @@ public class Metadata {
 			while(it.hasNext()) {
 				 w.write("{");
 				 w.newLine();
-				 w.write("\"alias\":" + listaParam[i].toString() );
-				 w.write("\"sourceField:\""+ it.next());
-				 w.write("\"type:\" \"string\"");
+				 w.write("\"alias\":" + listaParam[i].toString() + "\n" );
+				 w.write("\"sourceField:\""+ it.next() + "\n");
+				 w.write("\"type:\" \"string\"\n");
 				 w.write("},");
 				 i++;
 			}
@@ -54,10 +54,10 @@ public class Metadata {
 		
 	}
 	public static void main(String args[]) {
-		Metadati m= new Metadati();
+		Metadata m= new Metadata();
 		try {
-			m.toJSon();
-			System.out.println("Dato");
+			m.toJSonMetadata();
+			System.out.println("File json getMetadata creato");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
