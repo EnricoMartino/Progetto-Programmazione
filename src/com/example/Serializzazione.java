@@ -13,28 +13,28 @@ public class Serializzazione {
 	public List<Appartamento> serialize(){
 
 		  String csvFile= "UnivPm.csv";
-		  List<Appartamento> lista =new ArrayList<>();
+		  List<Appartamento> lista =new ArrayList<>(); //Creazione di una lista di Appartamento
 		  String line = ""; String cvsSplitBy = ";";
 		  
 		  try {
 		  
-		  BufferedReader br = new BufferedReader(new FileReader(csvFile)); 
+		  BufferedReader br = new BufferedReader(new FileReader(csvFile));  //Buffer aperto per leggere il file csv
 		  br.readLine();//salto la prima riga
-		  while ((line= br.readLine()) != null) {
+		  while ((line= br.readLine()) != null) { //Finche non si arriva alla fine del file, si legge la riga e la si mette in line
 		  
-		  String[] home = line.split(cvsSplitBy,13);
+		  String[] home = line.split(cvsSplitBy,13); //split di line all'interno di un array di stringhe 
 		  
 		  System.out.println("Case Vacanza [code= " + home[0] + " , Ubicazione=" +
 		  home[1] +", Area di Competenza=" + home[2] + ", Descrizione=" + home[3] +
 		  ", Civico=" + home[4] + ", codice_via=" + home[5] + ", Posti abitativi=" +
 		  home[6] + ", Posti letto=" + home[7] + ", Municipio=" + home[8] +
 		  ", Longitudine=" + home[9] + ", Latitudine=" + home[10] + ", Location=" +
-		  home[11] + "]");
+		  home[11] + "]"); //Stampa di tutti i dati all'interno dell'array di stringhe presi dal file csv
 		  
-		  lista.add(new Appartamento(home));
-		  System.out.println(lista.size());
+		  lista.add(new Appartamento(home)); //Creare un appartamento per la lista
+		  System.out.println(lista.size()); //Stampa la grandezza di lista per vedere se vengono stampati tutti
 		  
-		  System.out.println();
+		
 		  } br.close();
 		  
 		  } catch (FileNotFoundException e) {
@@ -48,9 +48,9 @@ public class Serializzazione {
 	 
 	public void outputfile(final List<Appartamento> lista) {
 		try {
-  			FileOutputStream fileOut = new FileOutputStream("appartamento.ser");
+  			FileOutputStream fileOut = new FileOutputStream("appartamento.ser"); //Creazione di un file appartamento.ser per la serializzazione dei dati
   			ObjectOutputStream out = new ObjectOutputStream(fileOut);
-  			out.writeObject(lista);
+  			out.writeObject(lista); //Scrittura dell'oggetto lista dove ci sono salvati tutti i dati del csv
   			out.close();
   			fileOut.close();
   			System.out.printf("Serialized data is saved in appartamento.ser");
