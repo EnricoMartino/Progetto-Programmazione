@@ -1,5 +1,6 @@
 package com.example;
 import java.io.*;
+import java.util.List;
 
 
 
@@ -8,20 +9,19 @@ public class Appartamento implements Serializable {
 	String ubicazione;
 	String area_di_competenza;
 	String descrizione_via;
-	String civico;
-	String codice_via;
-	String posti_abitativi;
-	String  posti_letto;
-	String municipio;
+	String civico;  //Civico String perchè il civico può contenere anche delle lettere
+	int codice_via;
+	int posti_abitativi;
+	int  posti_letto;
+	int municipio;
 	String longitudine;
 	String latitudine;
 	String location;
 	
-	
-	
+
 	//generate constructor of class "Appartamento" 
 	public Appartamento(String codice, String ubicazione, String area_di_competenza, String descrizione_via, String civico,
-			String codice_via, String posti_abitativi, String posti_letto, String municipio, String longitudine, String latitudine,
+			int codice_via, int posti_abitativi, int posti_letto, int municipio, String longitudine, String latitudine,
 			String location) {
 		this.codice = codice;
 		this.ubicazione = ubicazione;
@@ -37,14 +37,14 @@ public class Appartamento implements Serializable {
 		this.location = location;
 	}
 	
-	public Appartamento( final String[] home)  {
-		this(home[0],home[1],home[2],home[3],home[4],home[5],home[6],home[7],home[8],home[9],home[10],home[11]);
+	public Appartamento( final List<String> home)  {
+		this(home.get(0),home.get(1),home.get(2),home.get(3),home.get(4),Integer.parseInt(home.get(5)),Integer.parseInt(home.get(6)),
+				Integer.parseInt(home.get(7)),Integer.parseInt(home.get(8)),home.get(9),home.get(10),home.get(11));
 	}
 	
 	public Appartamento() {
 		super();
 	}
-
 	@Override
 	public String toString() {
 		return "\"codice\": \"" + codice + "\",\n \"ubicazione\": \"" + ubicazione + "\",\n \"area_di_competenza\": \""
@@ -52,6 +52,17 @@ public class Appartamento implements Serializable {
 				+ codice_via + "\",\n \"posti_abitativi\": \"" + posti_abitativi + "\"\n \"posti_letto\": \"" + posti_letto + "\",\n \" municipio\": \""
 					+ municipio + "\",\n \"longitudine\": \"" + longitudine + "\",\n \"latitudine\": \"" + latitudine + "\",\n \"location\": \"" + location + "\"\n";
 		}
+	
+	
+	/*
+	 * public String toString() { return "Appartamento [codice=" + codice +
+	 * ", ubicazione=" + ubicazione + ", area_di_competenza=" + area_di_competenza +
+	 * ", descrizione_via=" + descrizione_via + ", civico=" + civico +
+	 * ", codice_via=" + codice_via + ", posti_abitativi=" + posti_abitativi +
+	 * ", posti_letto=" + posti_letto + ", municipio=" + municipio +
+	 * ", longitudine=" + longitudine + ", latitudine=" + latitudine + ", location="
+	 * + location + "]"; }
+	 */
 	//generate getters and setters of class "Appartamento"
 	public String getCodice() {
 		return codice;
@@ -93,29 +104,29 @@ public class Appartamento implements Serializable {
 		this.civico = civico;
 	}
 
-	public String getCodice_via() {
+	public int getCodice_via() {
 		return codice_via;
 	}
 
-	public void setCodice_via(String codice_via) {
+	public void setCodice_via(int codice_via) {
 		this.codice_via = codice_via;
 	}
-	public String getPosti_abitativi() {
+	public int getPosti_abitativi() {
 		return posti_abitativi;
 	}
-	public void setPosti_abitativi(String posti_abitativi) {
+	public void setPosti_abitativi(int posti_abitativi) {
 		this.posti_abitativi = posti_abitativi;
 	}
-	public String getPosti_letto() {
+	public int getPosti_letto() {
 		return posti_letto;
 	}
-	public void setPosti_letto(String posti_letto) {
+	public void setPosti_letto(int posti_letto) {
 		this.posti_letto = posti_letto;
 	}
-	public String getMunicipio() {
+	public int getMunicipio() {
 		return municipio;
 	}
-	public void setMunicipio(String municipio) {
+	public void setMunicipio(int municipio) {
 		this.municipio = municipio;
 	}
 	public String getLongitudine() {
