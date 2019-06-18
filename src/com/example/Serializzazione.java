@@ -50,7 +50,6 @@ public class Serializzazione {
 		 }catch(NumberFormatException e) {
 			 e.printStackTrace();
 		 }
-		  System.out.println("\nI dati serializzati sono: " + lista.size()); //Stampa la grandezza di lista per vedere se vengono stampati tutti
 		  
 		  return lista;
 	}
@@ -66,7 +65,12 @@ public class Serializzazione {
   		} catch (IOException i) {
   			i.printStackTrace();
   		}
+		  System.out.println("\nI dati serializzati sono: " + lista.size()); //Stampa la grandezza di lista per vedere se vengono stampati tutti
+		  
+
 	}
+	
+	
 	
 
 
