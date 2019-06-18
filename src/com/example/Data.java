@@ -5,13 +5,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.OptionalDouble;
+import java.util.OptionalInt;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 
-public class Data{
+public class Data {
 
   private static final String JSON_FILE_NAME = "getData.json";
   private static final String JSON_FILE_NAME_FILTER = "getDataFilterExample.json";
+  private static final String JSON_FILE_NAME_FILTER_SUMMINMAXAVG = "getDataFilterMAXMINAVGSUMExample.json";
   private Serializzazione s = new Serializzazione();
   
   
@@ -69,6 +73,69 @@ public class Data{
 		  
 	  }
   
+	public void jsonDataSumAvgMinMaxCount() throws IOException {
+			BufferedWriter w = new BufferedWriter(new FileWriter(JSON_FILE_NAME_FILTER_SUMMINMAXAVG));//Apertura Buffer per scrittura su un file json
+			int sum = 0;
+			OptionalDouble avg = null ;
+			OptionalInt max = null;
+			OptionalInt min = null;
+			long count = 0;
+			String choice = "";
+			Scanner in = new Scanner(System.in);
+			System.out.println("Scegliere il campo di utilizzo del filto\n" + 
+			"Si posssono utilizzare questi campi (Codice via,Posti letto,Municipio,Posti abitativi)\n");
+			choice = in.nextLine();
+			
+			boolean validSelection = false;
+			while(!validSelection) {
+			switch(choice) {
+			case "Posti letto":
+				sum = s.serialize().stream().filter(p->p.getPosti_letto()!=-1).mapToInt(Appartamento::getPosti_letto).sum();
+		        avg = s.serialize().stream().filter(p->p.getPosti_letto()!=-1).mapToInt(Appartamento::getPosti_letto).average();
+		        max = s.serialize().stream().filter(p->p.getPosti_letto()!=-1).mapToInt(Appartamento::getPosti_letto).max();
+		        min = s.serialize().stream().filter(p->p.getPosti_letto()!=-1).mapToInt(Appartamento::getPosti_letto).min();
+		        count = s.serialize().stream().filter(p->p.getPosti_letto()!=-1).mapToInt(Appartamento::getPosti_letto).count();
+		        validSelection=true;
+				break;
+			case "Codice via":
+		        sum = s.serialize().stream().filter(p->p.getCodice_via()!=-1).mapToInt(Appartamento::getPosti_letto).sum();
+		        avg = s.serialize().stream().filter(p->p.getCodice_via()!=-1).mapToInt(Appartamento::getPosti_letto).average();
+		        max = s.serialize().stream().filter(p->p.getCodice_via()!=-1).mapToInt(Appartamento::getPosti_letto).max();
+		        min = s.serialize().stream().filter(p->p.getCodice_via()!=-1).mapToInt(Appartamento::getPosti_letto).min();
+		        count = s.serialize().stream().filter(p->p.getCodice_via()!=-1).mapToInt(Appartamento::getPosti_letto).count();
+		        validSelection=true;
+				break;
+			case "Municipio":
+		        sum = s.serialize().stream().filter(p->p.getMunicipio()!=-1).mapToInt(Appartamento::getPosti_letto).sum();
+		        avg = s.serialize().stream().filter(p->p.getMunicipio()!=-1).mapToInt(Appartamento::getPosti_letto).average();
+		        max = s.serialize().stream().filter(p->p.getMunicipio()!=-1).mapToInt(Appartamento::getPosti_letto).max();
+		        min = s.serialize().stream().filter(p->p.getMunicipio()!=-1).mapToInt(Appartamento::getPosti_letto).min();
+		        count = s.serialize().stream().filter(p->p.getMunicipio()!=-1).mapToInt(Appartamento::getPosti_letto).count();
+		        validSelection=true;
+		        break;
+			case "Posti abitativi":
+		        sum = s.serialize().stream().filter(p->p.getPosti_abitativi()!=-1).mapToInt(Appartamento::getPosti_letto).sum();
+		        avg = s.serialize().stream().filter(p->p.getPosti_abitativi()!=-1).mapToInt(Appartamento::getPosti_letto).average();
+		        max = s.serialize().stream().filter(p->p.getPosti_abitativi()!=-1).mapToInt(Appartamento::getPosti_letto).max();
+		        min = s.serialize().stream().filter(p->p.getPosti_abitativi()!=-1).mapToInt(Appartamento::getPosti_letto).min();
+		        count = s.serialize().stream().filter(p->p.getPosti_abitativi()!=-1).mapToInt(Appartamento::getPosti_letto).count();
+		        validSelection=true;
+		        break;
+			}
+			}
+	          w.write("{");
+	          w.newLine(); 
+	          w.write("\"Field\":" + choice);
+	          w.write("\n\"Sum\":" + sum);
+	          w.write("\n\"Avg\":" + avg);
+	          w.write("\n\"Max\":" + max);
+	          w.write("\n\"Min\":" + min);
+	          w.write("\n\"Count\":" + count);
+	          w.write("\n}");
+	          w.newLine(); 
+	          w.close();     	  
+	  }
+	
   
   public Serializzazione getS() {
 	return s;
@@ -85,10 +152,11 @@ public static String getJsonFileName() {
 
 
   
-  public static void main(String[] args) {
+  public static void main(String[] args) throws IOException {
 	  Data d= new Data();
 	  d.toJsonData();
 	  d.jsonDataFilter();
+	  d.jsonDataSumAvgMinMaxCount();
 	 
   }
   
