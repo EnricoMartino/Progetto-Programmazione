@@ -34,13 +34,17 @@ public class Serialization {
 					}
 
 				}
-
-				System.out.println("Case Vacanza [code= " + home.get(0) + " , Ubicazione=" + home.get(1)
-						+ ", Area di Competenza=" + home.get(2) + ", Descrizione=" + home.get(3) + ", Civico="
-						+ home.get(4) + ", codice_via=" + Integer.parseInt(home.get(5)) + ", Posti abitativi="
-						+ Integer.parseInt(home.get(6)) + ", Posti letto=" + Integer.parseInt(home.get(7))
-						+ ", Municipio=" + Integer.parseInt(home.get(8)) + ", Longitudine=" + home.get(9)
-						+ ", Latitudine=" + home.get(10) + ", Location=" + home.get(11) + "]"); // Stampa di tutti i
+				/*
+				 * System.out.println("Case Vacanza [code= " + home.get(0) + " , Ubicazione=" +
+				 * home.get(1) + ", Area di Competenza=" + home.get(2) + ", Descrizione=" +
+				 * home.get(3) + ", Civico=" + home.get(4) + ", codice_via=" +
+				 * Integer.parseInt(home.get(5)) + ", Posti abitativi=" +
+				 * Integer.parseInt(home.get(6)) + ", Posti letto=" +
+				 * Integer.parseInt(home.get(7)) + ", Municipio=" +
+				 * Integer.parseInt(home.get(8)) + ", Longitudine=" + home.get(9) +
+				 * ", Latitudine=" + home.get(10) + ", Location=" + home.get(11) + "]");
+				 */
+				  // Stampa di tutti i
 																								// dati all'interno
 																								// dell'array di
 																								// stringhe presi dal
