@@ -17,15 +17,12 @@ public class Data {
 	private static final String JSON_FILE_NAME_FILTER = "getDataFilterExample.json";
 	private static final String JSON_FILE_NAME_FILTER_SUMMINMAXAVG = "getDataFilterMAXMINAVGSUMExample.json";
 	private Serialization s = new Serialization();
-
-	/**
-	 * @throws ClassNotFoundException
-	 */
+	List<Appartamento> call = s.serialize();
 	public void toJsonData() {
 
 		try {
 			BufferedWriter w = new BufferedWriter(new FileWriter(JSON_FILE_NAME));
-			List<String> l = s.serialize().stream().map(a -> a.toString()).collect(Collectors.toList());
+			List<String> l = call.stream().map(a -> a.toString()).collect(Collectors.toList());
 			Iterator<String> it = l.iterator();
 
 			while (it.hasNext()) {
@@ -53,7 +50,7 @@ public class Data {
 			BufferedWriter w = new BufferedWriter(new FileWriter(JSON_FILE_NAME_FILTER));// Apertura Buffer per
 																							// scrittura su un file json
 
-			List<Appartamento> l = s.serialize().stream()
+			List<Appartamento> l = call.stream()
 					.filter(a -> a.getPosti_abitativi() >= 7 && a.getPosti_abitativi() <= 9)
 					.collect(Collectors.toList());// Utilizzo dello stream e delle collection per creare un filtro della
 													// lista di appartamento
@@ -86,69 +83,70 @@ public class Data {
 		OptionalInt max = null;
 		OptionalInt min = null;
 		long count = 0;
-		String choice = "";
+		int choice = 0;
 		Scanner in = new Scanner(System.in);
 		System.out.println("Scegliere il campo di utilizzo del filto\n"
-				+ "Si posssono utilizzare questi campi (Codice via,Posti letto,Municipio,Posti abitativi)\n");
-		choice = in.nextLine();
+				+ "Si posssono utilizzare questi campi:" + "\n1-Posti letto\n2-Codice via\n3-Municipio\n4-Posti abitativi");
+		choice = in.nextInt();
 
 		boolean validSelection = false;
 		while (!validSelection) {
 			switch (choice) {
-			case "Posti letto":
-				sum = s.serialize().stream().filter(p -> p.getPosti_letto() != -1)
+			case 1:
+				sum = call.stream().filter(p -> p.getPosti_letto() != -1)
 						.mapToInt(Appartamento::getPosti_letto).sum();
-				avg = s.serialize().stream().filter(p -> p.getPosti_letto() != -1)
+				avg = call.stream().filter(p -> p.getPosti_letto() != -1)
 						.mapToInt(Appartamento::getPosti_letto).average();
-				max = s.serialize().stream().filter(p -> p.getPosti_letto() != -1)
+				max = call.stream().filter(p -> p.getPosti_letto() != -1)
 						.mapToInt(Appartamento::getPosti_letto).max();
-				min = s.serialize().stream().filter(p -> p.getPosti_letto() != -1)
+				min = call.stream().filter(p -> p.getPosti_letto() != -1)
 						.mapToInt(Appartamento::getPosti_letto).min();
-				count = s.serialize().stream().filter(p -> p.getPosti_letto() != -1)
+				count = call.stream().filter(p -> p.getPosti_letto() != -1)
 						.mapToInt(Appartamento::getPosti_letto).count();
 				validSelection = true;
 				break;
-			case "Codice via":
-				sum = s.serialize().stream().filter(p -> p.getCodice_via() != -1).mapToInt(Appartamento::getPosti_letto)
+			case 2:
+				sum = call.stream().filter(p -> p.getCodice_via() != -1).mapToInt(Appartamento::getCodice_via)
 						.sum();
-				avg = s.serialize().stream().filter(p -> p.getCodice_via() != -1).mapToInt(Appartamento::getPosti_letto)
+				avg = call.stream().filter(p -> p.getCodice_via() != -1).mapToInt(Appartamento::getCodice_via)
 						.average();
-				max = s.serialize().stream().filter(p -> p.getCodice_via() != -1).mapToInt(Appartamento::getPosti_letto)
+				max = call.stream().filter(p -> p.getCodice_via() != -1).mapToInt(Appartamento::getCodice_via)
 						.max();
-				min = s.serialize().stream().filter(p -> p.getCodice_via() != -1).mapToInt(Appartamento::getPosti_letto)
+				min = call.stream().filter(p -> p.getCodice_via() != -1).mapToInt(Appartamento::getCodice_via)
 						.min();
-				count = s.serialize().stream().filter(p -> p.getCodice_via() != -1)
-						.mapToInt(Appartamento::getPosti_letto).count();
+				count = call.stream().filter(p -> p.getCodice_via() != -1)
+						.mapToInt(Appartamento::getCodice_via).count();
 				validSelection = true;
 				break;
-			case "Municipio":
-				sum = s.serialize().stream().filter(p -> p.getMunicipio() != -1).mapToInt(Appartamento::getPosti_letto)
+			case 3:
+				sum = call.stream().filter(p -> p.getMunicipio() != -1).mapToInt(Appartamento::getMunicipio)
 						.sum();
-				avg = s.serialize().stream().filter(p -> p.getMunicipio() != -1).mapToInt(Appartamento::getPosti_letto)
+				avg = call.stream().filter(p -> p.getMunicipio() != -1).mapToInt(Appartamento::getMunicipio)
 						.average();
-				max = s.serialize().stream().filter(p -> p.getMunicipio() != -1).mapToInt(Appartamento::getPosti_letto)
+				max = call.stream().filter(p -> p.getMunicipio() != -1).mapToInt(Appartamento::getMunicipio)
 						.max();
-				min = s.serialize().stream().filter(p -> p.getMunicipio() != -1).mapToInt(Appartamento::getPosti_letto)
+				min = call.stream().filter(p -> p.getMunicipio() != -1).mapToInt(Appartamento::getMunicipio)
 						.min();
-				count = s.serialize().stream().filter(p -> p.getMunicipio() != -1)
-						.mapToInt(Appartamento::getPosti_letto).count();
+				count = call.stream().filter(p -> p.getMunicipio() != -1)
+						.mapToInt(Appartamento::getMunicipio).count();
 				validSelection = true;
 				break;
-			case "Posti abitativi":
-				sum = s.serialize().stream().filter(p -> p.getPosti_abitativi() != -1)
-						.mapToInt(Appartamento::getPosti_letto).sum();
-				avg = s.serialize().stream().filter(p -> p.getPosti_abitativi() != -1)
-						.mapToInt(Appartamento::getPosti_letto).average();
-				max = s.serialize().stream().filter(p -> p.getPosti_abitativi() != -1)
-						.mapToInt(Appartamento::getPosti_letto).max();
-				min = s.serialize().stream().filter(p -> p.getPosti_abitativi() != -1)
-						.mapToInt(Appartamento::getPosti_letto).min();
-				count = s.serialize().stream().filter(p -> p.getPosti_abitativi() != -1)
-						.mapToInt(Appartamento::getPosti_letto).count();
+			case 4:
+				sum = call.stream().filter(p -> p.getPosti_abitativi() != -1)
+						.mapToInt(Appartamento::getPosti_abitativi).sum();
+				avg = call.stream().filter(p -> p.getPosti_abitativi() != -1)
+						.mapToInt(Appartamento::getPosti_abitativi).average();
+				max = call.stream().filter(p -> p.getPosti_abitativi() != -1)
+						.mapToInt(Appartamento::getPosti_abitativi).max();
+				min = call.stream().filter(p -> p.getPosti_abitativi() != -1)
+						.mapToInt(Appartamento::getPosti_abitativi).min();
+				count = call.stream().filter(p -> p.getPosti_abitativi() != -1)
+						.mapToInt(Appartamento::getPosti_abitativi).count();
 				validSelection = true;
 				break;
 			}
 		}
+		in.close();
 		w.write("{");
 		w.newLine();
 		w.write("\"Field\":" + choice);
@@ -160,6 +158,7 @@ public class Data {
 		w.write("\n}");
 		w.newLine();
 		w.close();
+		System.out.println("File " + JSON_FILE_NAME_FILTER_SUMMINMAXAVG + " creato");
 	}
 
 	public Serialization getS() {
