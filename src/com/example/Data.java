@@ -93,55 +93,35 @@ public class Data {
 		while (!validSelection) {
 			switch (choice) {
 			case 1:
-				sum = call.stream().filter(p -> p.getPosti_letto() != -1)
-						.mapToInt(Appartamento::getPosti_letto).sum();
-				avg = call.stream().filter(p -> p.getPosti_letto() != -1)
-						.mapToInt(Appartamento::getPosti_letto).average();
-				max = call.stream().filter(p -> p.getPosti_letto() != -1)
-						.mapToInt(Appartamento::getPosti_letto).max();
-				min = call.stream().filter(p -> p.getPosti_letto() != -1)
-						.mapToInt(Appartamento::getPosti_letto).min();
-				count = call.stream().filter(p -> p.getPosti_letto() != -1)
-						.mapToInt(Appartamento::getPosti_letto).count();
+				sum = call.stream().filter(p -> p.getPosti_letto() != -1).mapToInt(Appartamento::getPosti_letto).sum();
+				avg = call.stream().filter(p -> p.getPosti_letto() != -1).mapToInt(Appartamento::getPosti_letto).average();
+				max = call.stream().filter(p -> p.getPosti_letto() != -1).mapToInt(Appartamento::getPosti_letto).max();
+				min = call.stream().filter(p -> p.getPosti_letto() != -1).mapToInt(Appartamento::getPosti_letto).min();
+				count = call.stream().filter(p -> p.getPosti_letto() != -1).mapToInt(Appartamento::getPosti_letto).count();
 				validSelection = true;
 				break;
 			case 2:
-				sum = call.stream().filter(p -> p.getCodice_via() != -1).mapToInt(Appartamento::getCodice_via)
-						.sum();
-				avg = call.stream().filter(p -> p.getCodice_via() != -1).mapToInt(Appartamento::getCodice_via)
-						.average();
-				max = call.stream().filter(p -> p.getCodice_via() != -1).mapToInt(Appartamento::getCodice_via)
-						.max();
-				min = call.stream().filter(p -> p.getCodice_via() != -1).mapToInt(Appartamento::getCodice_via)
-						.min();
-				count = call.stream().filter(p -> p.getCodice_via() != -1)
-						.mapToInt(Appartamento::getCodice_via).count();
+				sum = call.stream().filter(p -> p.getCodice_via() != -1).mapToInt(Appartamento::getCodice_via).sum();
+				avg = call.stream().filter(p -> p.getCodice_via() != -1).mapToInt(Appartamento::getCodice_via).average();
+				max = call.stream().filter(p -> p.getCodice_via() != -1).mapToInt(Appartamento::getCodice_via).max();
+				min = call.stream().filter(p -> p.getCodice_via() != -1).mapToInt(Appartamento::getCodice_via).min();
+				count = call.stream().filter(p -> p.getCodice_via() != -1).mapToInt(Appartamento::getCodice_via).count();
 				validSelection = true;
 				break;
 			case 3:
-				sum = call.stream().filter(p -> p.getMunicipio() != -1).mapToInt(Appartamento::getMunicipio)
-						.sum();
-				avg = call.stream().filter(p -> p.getMunicipio() != -1).mapToInt(Appartamento::getMunicipio)
-						.average();
-				max = call.stream().filter(p -> p.getMunicipio() != -1).mapToInt(Appartamento::getMunicipio)
-						.max();
-				min = call.stream().filter(p -> p.getMunicipio() != -1).mapToInt(Appartamento::getMunicipio)
-						.min();
-				count = call.stream().filter(p -> p.getMunicipio() != -1)
-						.mapToInt(Appartamento::getMunicipio).count();
+				sum = call.stream().filter(p -> p.getMunicipio() != -1).mapToInt(Appartamento::getMunicipio).sum();
+				avg = call.stream().filter(p -> p.getMunicipio() != -1).mapToInt(Appartamento::getMunicipio).average();
+				max = call.stream().filter(p -> p.getMunicipio() != -1).mapToInt(Appartamento::getMunicipio).max();
+				min = call.stream().filter(p -> p.getMunicipio() != -1).mapToInt(Appartamento::getMunicipio).min();
+				count = call.stream().filter(p -> p.getMunicipio() != -1).mapToInt(Appartamento::getMunicipio).count();
 				validSelection = true;
 				break;
 			case 4:
-				sum = call.stream().filter(p -> p.getPosti_abitativi() != -1)
-						.mapToInt(Appartamento::getPosti_abitativi).sum();
-				avg = call.stream().filter(p -> p.getPosti_abitativi() != -1)
-						.mapToInt(Appartamento::getPosti_abitativi).average();
-				max = call.stream().filter(p -> p.getPosti_abitativi() != -1)
-						.mapToInt(Appartamento::getPosti_abitativi).max();
-				min = call.stream().filter(p -> p.getPosti_abitativi() != -1)
-						.mapToInt(Appartamento::getPosti_abitativi).min();
-				count = call.stream().filter(p -> p.getPosti_abitativi() != -1)
-						.mapToInt(Appartamento::getPosti_abitativi).count();
+				sum = call.stream().filter(p -> p.getPosti_abitativi() != -1).mapToInt(Appartamento::getPosti_abitativi).sum();
+				avg = call.stream().filter(p -> p.getPosti_abitativi() != -1).mapToInt(Appartamento::getPosti_abitativi).average();
+				max = call.stream().filter(p -> p.getPosti_abitativi() != -1).mapToInt(Appartamento::getPosti_abitativi).max();
+				min = call.stream().filter(p -> p.getPosti_abitativi() != -1).mapToInt(Appartamento::getPosti_abitativi).min();
+				count = call.stream().filter(p -> p.getPosti_abitativi() != -1).mapToInt(Appartamento::getPosti_abitativi).count();
 				validSelection = true;
 				break;
 			}
