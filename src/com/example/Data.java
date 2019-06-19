@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.OptionalDouble;
@@ -18,6 +19,7 @@ public class Data {
 	private static final String JSON_FILE_NAME_FILTER_SUMMINMAXAVG = "getDataFilterMAXMINAVGSUMExample.json";
 	private Serialization s = new Serialization();
 	List<Appartamento> call = s.serialize();
+	
 	public void toJsonData() {
 
 		try {
@@ -49,7 +51,7 @@ public class Data {
 
 			BufferedWriter w = new BufferedWriter(new FileWriter(JSON_FILE_NAME_FILTER));// Apertura Buffer per
 																							// scrittura su un file json
-
+			Scanner in = new Scanner(System.in);
 			List<Appartamento> l = call.stream()
 					.filter(a -> a.getPosti_abitativi() >= 7 && a.getPosti_abitativi() <= 9)
 					.collect(Collectors.toList());// Utilizzo dello stream e delle collection per creare un filtro della
@@ -73,11 +75,26 @@ public class Data {
 		}
 
 	}
+	
+	public String scelta(int a) {
+		String str = "";
+		if(a==1) {
+			str="Posti Letto";
+		}else if(a==2) {
+			str = "Codice Via";
+		}else if(a==3){
+			str = "Municipio";
+		}else if(a==4) {
+			str = "Posti Abitativi";
+		}
+		return str;
+	}
 
 	public void jsonDataSumAvgMinMaxCount() throws IOException {
 		BufferedWriter w = new BufferedWriter(new FileWriter(JSON_FILE_NAME_FILTER_SUMMINMAXAVG));// Apertura Buffer per
 																									// scrittura su un
 																									// file json
+	
 		int sum = 0;
 		OptionalDouble avg = null;
 		OptionalInt max = null;
@@ -85,19 +102,19 @@ public class Data {
 		long count = 0;
 		int choice = 0;
 		Scanner in = new Scanner(System.in);
-		System.out.println("Scegliere il campo di utilizzo del filto\n"
-				+ "Si posssono utilizzare questi campi:" + "\n1-Posti letto\n2-Codice via\n3-Municipio\n4-Posti abitativi");
-		choice = in.nextInt();
-
 		boolean validSelection = false;
-		while (!validSelection) {
+	
+		do {
+			System.out.println("Scegliere il campo di utilizzo del filto\n"
+					+ "Si posssono utilizzare questi campi:" + "\n1-Posti letto\n2-Codice via\n3-Municipio\n4-Posti abitativi");
+			choice = in.nextInt();
+
 			switch (choice) {
 			case 1:
 				sum = call.stream().filter(p -> p.getPosti_letto() != -1).mapToInt(Appartamento::getPosti_letto).sum();
 				avg = call.stream().filter(p -> p.getPosti_letto() != -1).mapToInt(Appartamento::getPosti_letto).average();
 				max = call.stream().filter(p -> p.getPosti_letto() != -1).mapToInt(Appartamento::getPosti_letto).max();
 				min = call.stream().filter(p -> p.getPosti_letto() != -1).mapToInt(Appartamento::getPosti_letto).min();
-				count = call.stream().filter(p -> p.getPosti_letto() != -1).mapToInt(Appartamento::getPosti_letto).count();
 				validSelection = true;
 				break;
 			case 2:
@@ -125,11 +142,11 @@ public class Data {
 				validSelection = true;
 				break;
 			}
-		}
-		in.close();
+		}while(validSelection!=true);		
+		in.close();	
 		w.write("{");
 		w.newLine();
-		w.write("\"Field\":" + choice);
+		w.write("\"Field\":" + this.scelta(choice));
 		w.write("\n\"Sum\":" + sum);
 		w.write("\n\"Avg\":" + avg);
 		w.write("\n\"Max\":" + max);
@@ -140,6 +157,8 @@ public class Data {
 		w.close();
 		System.out.println("File " + JSON_FILE_NAME_FILTER_SUMMINMAXAVG + " creato");
 	}
+	
+
 
 	public Serialization getS() {
 		return s;
@@ -155,8 +174,8 @@ public class Data {
 
 	public static void main(String[] args) throws IOException {
 		Data d = new Data();
-		d.toJsonData();
-		d.jsonDataFilter();
+		//d.toJsonData();
+		//d.jsonDataFilter();
 		d.jsonDataSumAvgMinMaxCount();
 
 	}
