@@ -34,12 +34,20 @@ public class Metadata {
 			BufferedWriter w = new BufferedWriter(new FileWriter(JSON_FILE_NAME));
 			Iterator<String> it = firstLine.iterator();
 			int i = 0;
+			String typeStr = "NULL";
+			for(int j=0; j<firstLine.size();j++) {
+				if(listaParam[i].getType()==typeStr.getClass()) {
+					typeStr="String";
+				}else if(listaParam[i].getType().equals(Integer.TYPE)) {
+					typeStr="Integer";
+				}
+			}
 			while (it.hasNext()) {
 				w.write("{");
 				w.newLine();
-				w.write("\"alias\":" + listaParam[i].toString() + "\n");
+				w.write("\"alias\":" + listaParam[i].toString() + "\"\n");
 				w.write("\"sourceField:\"" + it.next() + "\n");
-				w.write("\"type:\" \"string\"\n");
+				w.write("\"type:\" \"" + typeStr + "\"\n");
 				w.write("},");
 				i++;
 			}
