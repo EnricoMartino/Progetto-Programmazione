@@ -9,7 +9,7 @@ public class Appartamento implements Serializable {
 	String ubicazione;
 	String area_di_competenza;
 	String descrizione_via;
-	String civico;  //Civico String perchè il civico può contenere anche delle lettere
+	String civico;  //Civico String perchÃ¨ il civico puÃ² contenere anche delle lettere
 	int codice_via;
 	int posti_abitativi;
 	int  posti_letto;
