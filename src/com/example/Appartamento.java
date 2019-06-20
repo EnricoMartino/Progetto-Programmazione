@@ -2,14 +2,14 @@ package com.example;
 import java.io.*;
 import java.util.List;
 
-
+//class "Appartamento" 
 
 public class Appartamento implements Serializable {
 	String codice;
 	String ubicazione;
 	String area_di_competenza;
 	String descrizione_via;
-	String civico;  //Civico String perchè il civico può contenere anche delle lettere
+	String civico;  //String because "civico" can include letters
 	int codice_via;
 	int posti_abitativi;
 	int  posti_letto;
@@ -19,7 +19,7 @@ public class Appartamento implements Serializable {
 	String location;
 	
 
-	//generate constructor of class "Appartamento" 
+	//Generate constructors of class "Appartamento" 
 	public Appartamento(String codice, String ubicazione, String area_di_competenza, String descrizione_via, String civico,
 			int codice_via, int posti_abitativi, int posti_letto, int municipio, String longitudine, String latitudine,
 			String location) {
@@ -36,7 +36,7 @@ public class Appartamento implements Serializable {
 		this.latitudine = latitudine;
 		this.location = location;
 	}
-	
+	//created list "home" with features of class "appartamento"
 	public Appartamento( final List<String> home)  {
 		this(home.get(0),home.get(1),home.get(2),home.get(3),home.get(4),Integer.parseInt(home.get(5)),Integer.parseInt(home.get(6)),
 				Integer.parseInt(home.get(7)),Integer.parseInt(home.get(8)),home.get(9),home.get(10),home.get(11));
@@ -45,6 +45,7 @@ public class Appartamento implements Serializable {
 	public Appartamento() {
 		super();
 	}
+	//Override of "appartamento"
 	@Override
 	public String toString() {
 		return "\"codice\": \"" + codice + "\",\n \"ubicazione\": \"" + ubicazione + "\",\n \"area_di_competenza\": \""
@@ -63,7 +64,9 @@ public class Appartamento implements Serializable {
 	 * ", longitudine=" + longitudine + ", latitudine=" + latitudine + ", location="
 	 * + location + "]"; }
 	 */
-	//generate getters and setters of class "Appartamento"
+	
+	
+	//Generate getters and setters of class "Appartamento"
 	public String getCodice() {
 		return codice;
 	}

@@ -9,27 +9,28 @@ import java.io.*;
 import java.nio.file.Files;
 
 public class Serialization {
-	List<Appartamento> lista = new ArrayList<>(); // Creazione di una lista di Appartamento
+	List<Appartamento> lista = new ArrayList<>(); // create list  "Appartamento"
 
 	public List<Appartamento> serialize() {
-
-		String csvFile = "UnivPm.csv";
-		String line = "";
-		String cvsSplitBy = ";";
+        
+		String csvFile = "UnivPm.csv"; //create and initialize  String "csvFile"
+		String line = "";//create and initialize  String "line"
+		String cvsSplitBy = ";";//create and initialize  String "cvsPlitBy"
 
 		try {
 
-			BufferedReader br = new BufferedReader(new FileReader(csvFile)); // Buffer aperto per leggere il file csv
-			br.readLine();// salto la prima riga
-			while ((line = br.readLine()) != null) { // Finche non si arriva alla fine del file, si legge la riga e la
-														// si mette in line
+			BufferedReader br = new BufferedReader(new FileReader(csvFile)); // open Buffer to read "csvFile"
+			br.readLine();// climb the first line because there is no informations
+			while ((line = br.readLine()) != null) { // While end of file, read line and put it in string 
+				                                     //"line"
+														
 
-				List<String> home = Arrays.asList(line.split(cvsSplitBy, 13)); // split di line all'interno di un array
-																				// di stringhe
+				List<String> home = Arrays.asList(line.split(cvsSplitBy, 13)); // split of line in an array
+																				// of string
 
 				for (int i = 0; i < home.size(); i++) {
-					if (home.get(i).equals("") == true) { // Se trova nelle celle di ogni posizione una cella vuota
-															// allora mette un -1
+					if (home.get(i).equals("") == true) { // if find in the cells of each position an empty cell
+															// then puts -1
 						home.set(i, "-1");
 					}
 
@@ -45,12 +46,12 @@ public class Serialization {
 				 * ", Latitudine=" + home.get(10) + ", Location=" + home.get(11) + "]");
 				 */
 				  // Stampa di tutti i
-																								// dati all'interno
-																								// dell'array di
-																								// stringhe presi dal
-																								// file csv
+																								// data in the array
+																								// of string
+																								// took from csv file
+																							
 
-				lista.add(new Appartamento(home)); // Creare un appartamento per la lista
+				lista.add(new Appartamento(home)); //create an obj "Appartamento" to use it in the list
 
 			}
 			br.close();
@@ -68,19 +69,19 @@ public class Serialization {
 
 	public void outputfile(final List<Appartamento> lista) {
 		try {
-			FileOutputStream fileOut = new FileOutputStream("appartamento.ser"); // Creazione di un file
-																					// appartamento.ser per la
-																					// serializzazione dei dati
+			FileOutputStream fileOut = new FileOutputStream("appartamento.ser"); // Creation of a file
+																					// appartamento.ser to put
+																					// the serialization of the file
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
-			out.writeObject(lista); // Scrittura dell'oggetto lista dove ci sono salvati tutti i dati del csv
+			out.writeObject(lista); //Writing of the list object where all the data of the csv are saved
 			out.close();
 			fileOut.close();
 			System.out.printf("Serialized data is saved in appartamento.ser\n");
 		} catch (IOException i) {
 			i.printStackTrace();
 		}
-		System.out.println("\nI dati serializzati sono: " + lista.size()); // Stampa la grandezza di lista per vedere se
-																			// vengono stampati tutti
+		System.out.println("\nI dati serializzati sono: " + lista.size()); // Print the list size to see if
+																			// everything has been saved
 
 	}
 

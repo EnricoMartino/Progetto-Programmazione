@@ -1,1 +1,49 @@
-[{"sourceField":"Codice","alias":"codice","type:":"String"},{"sourceField":"Ubicazione","alias":"ubicazione","type:":"String"},{"sourceField":"Area di Competenza","alias":"area_di_competenza","type:":"String"},{"sourceField":"DescrizioneVia","alias":"descrizione_via","type:":"String"},{"sourceField":"Civico","alias":"civico","type:":"String"},{"sourceField":"CodiceVia","alias":"codice_via","type:":"Integer"},{"sourceField":"posti_abitativi","alias":"posti_abitativi","type:":"Integer"},{"sourceField":"posti_letto","alias":"posti_letto","type:":"Integer"},{"sourceField":"MUNICIPIO","alias":"municipio","type:":"Integer"},{"sourceField":"LONGIT","alias":"longitudine","type:":"String"},{"sourceField":"LATIT","alias":"latitudine","type:":"String"},{"sourceField":"Location","alias":"location","type:":"String"}]
+{
+"alias":java.lang.String com.example.Appartamento.codice"
+"sourceField:"Codice
+"type:" "String"
+},{
+"alias":java.lang.String com.example.Appartamento.ubicazione"
+"sourceField:"Ubicazione
+"type:" "String"
+},{
+"alias":java.lang.String com.example.Appartamento.area_di_competenza"
+"sourceField:"Area di Competenza
+"type:" "String"
+},{
+"alias":java.lang.String com.example.Appartamento.descrizione_via"
+"sourceField:"DescrizioneVia
+"type:" "String"
+},{
+"alias":java.lang.String com.example.Appartamento.civico"
+"sourceField:"Civico
+"type:" "String"
+},{
+"alias":int com.example.Appartamento.codice_via"
+"sourceField:"CodiceVia
+"type:" "String"
+},{
+"alias":int com.example.Appartamento.posti_abitativi"
+"sourceField:"posti_abitativi
+"type:" "String"
+},{
+"alias":int com.example.Appartamento.posti_letto"
+"sourceField:"posti_letto
+"type:" "String"
+},{
+"alias":int com.example.Appartamento.municipio"
+"sourceField:"MUNICIPIO
+"type:" "String"
+},{
+"alias":java.lang.String com.example.Appartamento.longitudine"
+"sourceField:"LONGIT
+"type:" "String"
+},{
+"alias":java.lang.String com.example.Appartamento.latitudine"
+"sourceField:"LATIT
+"type:" "String"
+},{
+"alias":java.lang.String com.example.Appartamento.location"
+"sourceField:"Location
+"type:" "String"
+},
