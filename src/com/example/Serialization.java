@@ -20,7 +20,7 @@ public class Serialization {
 		try {
 
 			BufferedReader br = new BufferedReader(new FileReader(csvFile)); // open Buffer to read "csvFile"
-			br.readLine();// climb the first line because there is no informations
+			br.readLine();// skip the first line because there is no informations
 			while ((line = br.readLine()) != null) { // While end of file, read line and put it in string 
 				                                     //"line"
 														
