@@ -11,7 +11,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Lenovo/Desktop/java-json.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Lenovo/Documents/File ricevuti/json-simple-1.1.jar"/>
+	<classpathentry kind="lib" path="JAR/json-simple-1.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
