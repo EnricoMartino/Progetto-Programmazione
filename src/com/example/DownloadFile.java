@@ -19,6 +19,7 @@ import org.json.simple.parser.ParseException;
 //class of download from url the the necessary data-set of the program
 public class DownloadFile {
 
+	private static final String csvfile = "UnivPm.csv";
 	public static void downloadFileFromUrl(String url, String filePathName, int readTimeoutInSeconds)
 			throws MalformedURLException, IOException {
 
@@ -81,7 +82,7 @@ public class DownloadFile {
 					String urlD = (String) o1.get("url");
 					System.out.println(format + " | " + urlD);
 					if (format.equals("csv")) {
-						downloadFileFromUrl(urlD, "UnivPm.csv", 1000);
+						downloadFileFromUrl(urlD, csvfile , 1000);
 					}
 				}
 			}
@@ -91,6 +92,7 @@ public class DownloadFile {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		System.out.println("File scaricato" + csvfile);
 
 	}
 
