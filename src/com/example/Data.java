@@ -147,7 +147,7 @@ public class Data {
 				break;
 			}
 		}while(validSelection!=true);		
-		in.close();	//close input stream
+		//in.close();	//close input stream
 		//based on the choice prints the filtered data
 		w.write("{");
 		w.newLine();
