@@ -1,5 +1,5 @@
 package com.example;
-
+//some imports needed to read write and import files
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -13,21 +13,25 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class Data {
-
+	// created and initialized a private String JSON_FILE_NAME
 	private static final String JSON_FILE_NAME = "getData.json";
-	private static final String JSON_FILE_NAME_FILTER = "getDataFilterExample.json";
-	private static final String JSON_FILE_NAME_FILTER_SUMMINMAXAVG = "getDataFilterMAXMINAVGSUMExample.json";
-	private Serialization s = new Serialization();
-	List<Appartamento> call = s.serialize();
+	//created and initialized a private String JSON_FILE_NAME_FILTER                                              
+   private static final String JSON_FILE_NAME_FILTER = "getDataFilterExample.json";
+    // created and initialized a String JSON_FILE_NAME_FILTER_SUMMINMAXAVG                                                                
+	private static final String  JSON_FILE_NAME_FILTER_SUMMINMAXAVG = "getDataFilterMAXMINAVGSUMExample.json";
+	                                                                                                            
+	private Serialization s = new Serialization(); //inizialized a private Serialization called "s"
+	List<Appartamento> call = s.serialize();       //list of type Appartamento called "call"
 	
-	public void toJsonData() {
+	public void toJsonData() {   
 
 		try {
+			//open a buffer writer of JSON_FILE_NAME
 			BufferedWriter w = new BufferedWriter(new FileWriter(JSON_FILE_NAME));
 			List<String> l = call.stream().map(a -> a.toString()).collect(Collectors.toList());
 			Iterator<String> it = l.iterator();
 
-			while (it.hasNext()) {
+			while (it.hasNext()) {  //while there is other elements keep going
 				w.write("{");
 				w.newLine();
 				w.write(it.next());
@@ -35,31 +39,31 @@ public class Data {
 
 			}
 			w.newLine();
-			w.close();
+			w.close();  //close the BuffreWriter
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
 	}
-
+   
 	public void jsonDataFilter() {
 		// System.out.println(lista.stream().filter(e ->
 		// e.getCivico().equals("3")).collect(Collectors.toList())); //stampa tutte le
 		// case con civico 3
 		try {
 
-			BufferedWriter w = new BufferedWriter(new FileWriter(JSON_FILE_NAME_FILTER));// Apertura Buffer per
-																							// scrittura su un file json
-			Scanner in = new Scanner(System.in);
+			BufferedWriter w = new BufferedWriter(new FileWriter(JSON_FILE_NAME_FILTER));// open Buffer to
+																							// write on a json file
+			Scanner in = new Scanner(System.in);  //open scanner
 			List<Appartamento> l = call.stream()
 					.filter(a -> a.getPosti_abitativi() >= 7 && a.getPosti_abitativi() <= 9)
-					.collect(Collectors.toList());// Utilizzo dello stream e delle collection per creare un filtro della
-													// lista di appartamento
-			Iterator<Appartamento> it = l.iterator(); // Creazione iteratore per scorrere la lista di appartamento
-			System.out.println("\nGli elementi trovati per questo filtro sono: \t" + l.size());
+					.collect(Collectors.toList());// Use of stream and collections to create a filter of
+													// Appartamento list
+			Iterator<Appartamento> it = l.iterator(); //Iterator creation to scroll the Appartamento list
+			System.out.println("\nGli elementi trovati per questo filtro sono: \t" + l.size()); //print the created items
 
-			while (it.hasNext()) {
+			while (it.hasNext()) {//while there is other elements keep going
 				w.write("{");
 				w.newLine();
 				w.write(it.next().toString());
@@ -67,7 +71,7 @@ public class Data {
 
 			}
 			w.newLine();
-			w.close();
+			w.close(); //close the BufferWriter
 
 			System.out.println("E' stato creato il file json con il filtro ");
 		} catch (IOException e) {
@@ -75,7 +79,7 @@ public class Data {
 		}
 
 	}
-	
+	//gives the possibility to choose an int from 1 to 4 
 	public String scelta(int a) {
 		String str = "";
 		if(a==1) {
@@ -91,10 +95,10 @@ public class Data {
 	}
 
 	public void jsonDataSumAvgMinMaxCount() throws IOException {
-		BufferedWriter w = new BufferedWriter(new FileWriter(JSON_FILE_NAME_FILTER_SUMMINMAXAVG));// Apertura Buffer per
-																									// scrittura su un
-																									// file json
-	
+		BufferedWriter w = new BufferedWriter(new FileWriter(JSON_FILE_NAME_FILTER_SUMMINMAXAVG));// open Buffer 
+																									// to write on a
+			//initialized variables sum, count, choise	to 0																				//json file
+		    //initialized variables avg, max, min to null
 		int sum = 0;
 		OptionalDouble avg = null;
 		OptionalInt max = null;
@@ -102,13 +106,13 @@ public class Data {
 		long count = 0;
 		int choice = 0;
 		Scanner in = new Scanner(System.in);
-		boolean validSelection = false;
-	
+		boolean validSelection = false;  
+	 //let you choose between different filter fields
 		do {
 			System.out.println("Scegliere il campo di utilizzo del filto\n"
 					+ "Si posssono utilizzare questi campi:" + "\n1-Posti letto\n2-Codice via\n3-Municipio\n4-Posti abitativi");
-			choice = in.nextInt();
-
+			choice = in.nextInt(); //let write your choice
+			//based on the choice switch case of 'choice' starts  with the 4 possible cases
 			switch (choice) {
 			case 1:
 				sum = call.stream().filter(p -> p.getPosti_letto() != -1).mapToInt(Appartamento::getPosti_letto).sum();
@@ -143,7 +147,8 @@ public class Data {
 				break;
 			}
 		}while(validSelection!=true);		
-		in.close();	
+		in.close();	//close input stream
+		//based on the choice prints the filtered data
 		w.write("{");
 		w.newLine();
 		w.write("\"Field\":" + this.scelta(choice));
@@ -159,7 +164,7 @@ public class Data {
 	}
 	
 
-
+   //generate getter and setter of Serialization 's'
 	public Serialization getS() {
 		return s;
 	}

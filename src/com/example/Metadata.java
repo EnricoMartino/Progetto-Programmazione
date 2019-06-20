@@ -10,14 +10,16 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class Metadata {
+	//created and initialized a private String COMMA_DELIMITER to ';'
 	private static final String COMMA_DELIMITER = ";";
+	//created and initialized a private String JSON_FILE_NAME to 'getMetadata.json'
 	private static final String JSON_FILE_NAME = "getMetadata.json";
-	private List<String> firstLine;
+	private List<String> firstLine;  //List of String called firstLine
 
 	public Metadata() {
-		String line = "";
+		String line = "";  //initialized a String to to copy the csv file "UnivPm.csv" into it
 		try {
-			line = new BufferedReader(new FileReader("UnivPm.csv")).readLine();
+			line = new BufferedReader(new FileReader("UnivPm.csv")).readLine(); //fills 'line' with the contents of the file
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -30,8 +32,10 @@ public class Metadata {
 		try {
 			@SuppressWarnings("rawtypes")
 			Class c = Class.forName("com.example.Appartamento");
-			Field listaParam[] = c.getDeclaredFields();
-			BufferedWriter w = new BufferedWriter(new FileWriter(JSON_FILE_NAME));
+			Field listaParam[] = c.getDeclaredFields();   //array of listaParam
+			BufferedWriter w = new BufferedWriter(new FileWriter(JSON_FILE_NAME));//open BufferReadear
+			                                                                       //to write
+			                                                                       //JSON_FILE_NAME
 			Iterator<String> it = firstLine.iterator();
 			int i = 0;
 			String typeStr = "NULL";
@@ -42,7 +46,7 @@ public class Metadata {
 					typeStr="Integer";
 				}
 			}
-			while (it.hasNext()) {
+			while (it.hasNext()) { //while there is something else keep going and print:
 				w.write("{");
 				w.newLine();
 				w.write("\"alias\":" + listaParam[i].toString() + "\"\n");
@@ -67,7 +71,7 @@ public class Metadata {
 			String typeStr = "NULL";
 			JSONArray metadataArray = new JSONArray();
 			
-			for(int i=0; i<firstLine.size();i++) {
+			for(int i=0; i<firstLine.size();i++) { 
 				JSONObject metadata = new JSONObject();
 				metadata.put("alias", listaParam[i].getName());
 				metadata.put("sourceField", firstLine.get(i));
