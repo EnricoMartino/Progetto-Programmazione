@@ -33,6 +33,10 @@ public class Data {
 	private Serialization s = new Serialization(); // inizialized a private Serialization called "s"
 	List<Appartamento> call = s.serialize(); // list of type Appartamento called "call"
 
+	/**
+	 * Method void that print to a json file the get Data
+	 * @author Luca Munerati, Enrico Martino Pio
+	 */
 	public void toJsonData() {
 
 		try {
@@ -57,6 +61,11 @@ public class Data {
 
 	}
 
+	/**
+	 * Method that return an int for the switch
+	 * @param a is the data chosen by user
+	 * @return a int for a correct selection
+	 */
 	public int ritornaDato(int a) {
 		boolean flag1 = false;
 		Scanner in = new Scanner(System.in);
@@ -72,14 +81,22 @@ public class Data {
 		} while (!flag1);
 		return a;
 	}
-	
+	/**
+	 * Method that return an String for the switch
+	 * @param app is the data chosen by user
+	 * @return a String for a correct selection
+	 */
 	public String ritornaStringa(String app) {
 		Scanner in = new Scanner(System.in);
 		app = in.nextLine();
 		return app;
 	}
 	
-	
+	/**
+	 * Return a creation of a file with a name chosen by user
+	 * @param a iterator for a correct cycle
+	 * @param str string chosen by user
+	 */
 	  public void ritornaFile(Iterator<Appartamento> a,String str) { 
 		  try {
 			  System.out.println("Dammi il nome che vuoi mettere al file");
@@ -100,7 +117,9 @@ public class Data {
 		}
 	  }
 	  
-
+/**
+ * Method that create a json file with a data filter
+ */
 	  public void jsonDataFilter() {
 		boolean select = false;
 		boolean select2 = false;
@@ -186,7 +205,11 @@ public class Data {
 			System.out.println("E' stato creato il file json con il filtro ");
 	}
 	
-// return a String due the choice of the user
+/**
+ * return a String due the choice of the user
+ * @param a the choice of user
+ * @return the choice of user
+ */
 	public String scelta(int a) {
 		String str = "";
 		if (a == 1) {
@@ -200,7 +223,10 @@ public class Data {
 		}
 		return str;
 	}
-
+/**
+ * Method that create a json file with a special statistic of the List<Appartamento>
+ * @throws IOException
+ */
 	public void jsonDataSumAvgMinMaxCount() throws IOException {
 		// initialized variables sum, count, choise to 0 //json file
 		// initialized variables avg, max, min to null

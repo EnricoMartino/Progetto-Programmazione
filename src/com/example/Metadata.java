@@ -24,6 +24,9 @@ public class Metadata {
 	private static final String JSON_FILE_NAME = "getMetadata.json";
 	private List<String> firstLine;  //List of String called firstLine
 
+	/**
+	 * Constructor with a split of first line of csv
+	 */
 	public Metadata() {
 		String line = "";  //initialized a String to to copy the csv file "UnivPm.csv" into it
 		try {
@@ -35,7 +38,10 @@ public class Metadata {
 		this.firstLine = Arrays.asList(line.split(COMMA_DELIMITER));
 
 	}
-
+	/**
+	 * Method that create a json file with the metadata
+	 * @throws ClassNotFoundException
+	 */
 	public void toJSonMetadata() throws ClassNotFoundException {
 		try {
 			@SuppressWarnings("rawtypes")
@@ -71,7 +77,10 @@ public class Metadata {
 		}
 
 	}
-	
+	/**
+	 * Method that create a json file with the metadata
+	 * @throws ClassNotFoundException
+	 */
 	public void toJsonMedataWithObject() {
 		try {
 			Class c = Class.forName("com.example.Appartamento");

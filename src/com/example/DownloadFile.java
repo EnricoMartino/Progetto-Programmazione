@@ -25,6 +25,11 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
 //class of download from url the the necessary data-set of the program
+/**
+ * The True connection with a timeout if doesn't work fine 
+ * @author Luca Munerati
+ *
+ */
 public class DownloadFile {
 
 	private static final String csvfile = "UnivPm.csv";
@@ -50,6 +55,10 @@ public class DownloadFile {
 		bout.close(); //close output stream
 		in.close(); //close input stream
 	}
+	/**
+	 * Use the connection for download file csv
+	 * @param args
+	 */
 
 	public static void main(String args[]) {
         //url of data-set assigned 

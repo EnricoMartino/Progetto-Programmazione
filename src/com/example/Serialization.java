@@ -20,6 +20,10 @@ import java.nio.file.Files;
 public class Serialization {
 	List<Appartamento> lista = new ArrayList<>(); // create list  "Appartamento"
 
+	/**
+	 * Method for a correct creation Appartamento with data of csv
+	 * @return List<Appartamento> that is the data of csv
+	 */
 	public List<Appartamento> serialize() {
         
 		String csvFile = "UnivPm.csv"; //create and initialize  String "csvFile"
@@ -75,7 +79,10 @@ public class Serialization {
 
 		return lista;
 	}
-
+	/**
+	 * Method that create a file appartamento.ser with serialization of the data on List<Appartamento>
+	 * @param lista that arrive with serialize
+	 */
 	public void outputfile(final List<Appartamento> lista) {
 		try {
 			FileOutputStream fileOut = new FileOutputStream("appartamento.ser"); // Creation of a file

@@ -45,6 +45,10 @@ public class Appartamento implements Serializable {
 		this.location = location;
 	}
 	//created list "home" with features of class "appartamento"
+	/**
+	 * This is a constructor for a better serialization
+	 * @param home
+	 */
 	public Appartamento( final List<String> home)  {
 		this(home.get(0),home.get(1),home.get(2),home.get(3),home.get(4),Integer.parseInt(home.get(5)),Integer.parseInt(home.get(6)),
 				Integer.parseInt(home.get(7)),Integer.parseInt(home.get(8)),home.get(9),home.get(10),home.get(11));
