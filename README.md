@@ -15,9 +15,6 @@ Documents
 -------------
 
 
-## UML diagrams
-
-
 ## Use case Diagram
 
 ![](image/UseCaseDiagram.jpg)
