@@ -1,7 +1,15 @@
 package com.example;
 import java.io.*;
 import java.util.List;
-
+/**
+ * the  Appartamento class
+ *  lists all the features of Milan vacation rentals
+ *  We used strings and integers as needed
+ *  Generated constructor and getters and setters
+ * @author Enrico Pio Martino
+ * @author Luca Munerati
+ *
+ */
 //class "Appartamento" 
 
 public class Appartamento implements Serializable {

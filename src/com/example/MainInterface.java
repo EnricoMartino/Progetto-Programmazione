@@ -1,3 +1,14 @@
+/**
+ * The MainInterface class is the main class of the program
+ * it calls classes:DownloadFile,Serialization,DataMetadata
+ * It
+ *  presents a menu by a switch case
+ *  that allows the user to choose between various alternatives.
+ *  
+ *  @author Enrico Pio Martino
+ *  @author Luca Munerati
+ * 
+ */
 package com.example;
 
 import java.awt.List;
@@ -23,14 +34,14 @@ public class MainInterface {
 	if(exit==true) {
 		System.out.println("Benvenuto nel Programma di Case Vacanze di Milano\n");
 		System.out.println("Per funzionare questo programma deve scaricare un file che noi chiameremo \"UnivPm.csv\"");
-		System.out.println("Dopo essere scaricato, il programma farà un lavoro di serializzazione per salvare i dati");
+		System.out.println("Dopo essere scaricato, il programma farï¿½ un lavoro di serializzazione per salvare i dati");
 		System.out.println("Quindi partiamo, adesso eseguo il tutto e ti chiedero alcune cose.");
-		System.out.println("Il file esiste già, ma visto che hai fatto partire il programma, proseguiamo.\n");
+		System.out.println("Il file esiste giï¿½, ma visto che hai fatto partire il programma, proseguiamo.\n");
 	
 	}else {
 		System.out.println("Benvenuto nel Programma di Case Vacanze di Milano\n");
 		System.out.println("Per funzionare questo programma deve scaricare un file che noi chiameremo \"UnivPm.csv\"");
-		System.out.println("Dopo essere scaricato, il programma farà un lavoro di serializzazione per salvare i dati");
+		System.out.println("Dopo essere scaricato, il programma farï¿½ un lavoro di serializzazione per salvare i dati");
 		System.out.println("Quindi partiamo, adesso eseguo il tutto e ti chiedero alcune cose. \n");
 		download.main(args);
 		ser.serialize();	

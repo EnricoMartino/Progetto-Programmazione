@@ -1,5 +1,14 @@
 package com.example;
-
+/**
+ * the Serialization class
+ * starts from the "UnivPm.csv" file already downloaded thanks
+ *  to the DownloadFile class and takes care of executing the
+ *   file serialization in a list and  then save the serialized file 
+ *   in a file called "appartamento.ser".
+ * 
+ * @author Enrico Pio Martino
+ * @author Luca Munerati
+ */
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;

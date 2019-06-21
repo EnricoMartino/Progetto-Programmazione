@@ -1,5 +1,16 @@
 package com.example;
-
+/**
+ * The Data class return data (JSON format)
+ *  and show filters 
+ * shows the data selection filters by customers who decide to 
+ * filter the houses based on their characteristics
+ * With a switch case the customer can name a file
+ *  and choose whether to filter a string or an integer
+ *  Then the customer can choose can choose from the keyboard to filter :Posti letto, Codice via, Municipio, Posti abitativi
+ * @author Enrico Pio Martino
+ * @author Luca Munerati
+ * 
+ */
 //some imports needed to read write and import files
 import java.io.BufferedWriter;
 import java.io.FileWriter;

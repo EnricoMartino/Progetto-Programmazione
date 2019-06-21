@@ -1,5 +1,13 @@
 package com.example;
-
+/**
+ * 
+ * return metadata (JSON format),
+ *  so a list of attributes and type
+ *  
+ * 
+ * @author Enrico Pio Martino
+ * @author Luca Munerati
+ */
 import java.io.*;
 import java.lang.reflect.*;
 import java.util.Arrays;

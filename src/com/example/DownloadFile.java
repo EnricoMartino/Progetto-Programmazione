@@ -1,5 +1,13 @@
 package com.example;
-
+/**
+ * The DownlodFile class takes care of downloading the file 
+ * from a link containing a data-set
+ * The file will be downloaded and called "UnivPm.csv"
+ * Then the file is ready to be serialized
+ * 
+ * @author Enrico Pio Martino
+ * @author Luca Munerati
+ */
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;

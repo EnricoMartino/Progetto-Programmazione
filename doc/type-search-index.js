@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"com.example","l":"Appartamento"},{"p":"com.example","l":"Data"},{"p":"com.example","l":"DownloadFile"},{"p":"com.example","l":"MainInterface"},{"p":"com.example","l":"Metadata"},{"p":"com.example","l":"Serialization"}]
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"com.example","l":"Data"}]
