@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"com.example","c":"Serialization","l":"outputfile(List<Appartamento>)","url":"outputfile(java.util.List)"},{"p":"com.example","c":"Serialization","l":"Serialization()","url":"%3Cinit%3E()"},{"p":"com.example","c":"Serialization","l":"serialize()"}]
