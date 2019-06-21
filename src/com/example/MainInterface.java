@@ -2,12 +2,13 @@ package com.example;
 
 import java.awt.List;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
 public class MainInterface {
 
-	public static void main(String[] args) throws IOException, ClassNotFoundException {
+	public static void main(String[] args) throws IOException, ClassNotFoundException, FileNotFoundException {
 	DownloadFile download = new DownloadFile();
 	Serialization ser = new Serialization();
 	Data data = new Data();

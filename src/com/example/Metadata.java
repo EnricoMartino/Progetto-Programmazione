@@ -19,7 +19,7 @@ public class Metadata {
 	public Metadata() {
 		String line = "";  //initialized a String to to copy the csv file "UnivPm.csv" into it
 		try {
-			line = new BufferedReader(new FileReader("UnivPm.csv")).readLine(); //fills 'line' with the contents of the file
+			line = new BufferedReader(new FileReader("UnivPm.csv")).readLine(); //fills 'line' with the firstline of the file
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -36,28 +36,29 @@ public class Metadata {
 			BufferedWriter w = new BufferedWriter(new FileWriter(JSON_FILE_NAME));//open BufferReadear
 			                                                                       //to write
 			                                                                       //JSON_FILE_NAME
-			Iterator<String> it = firstLine.iterator();
+			Iterator<String> it = firstLine.iterator(); //Create iterator for cycle the firstline
 			int i = 0;
 			String typeStr = "NULL";
 			for(int j=0; j<firstLine.size();j++) {
-				if(listaParam[i].getType()==typeStr.getClass()) {
+				if(listaParam[i].getType()==typeStr.getClass()) { //if the paramaters of attributes is a string then return "String" 
 					typeStr="String";
-				}else if(listaParam[i].getType().equals(Integer.TYPE)) {
+				}else if(listaParam[i].getType().equals(Integer.TYPE)) { //if the paramater is an int then return "Integer"
 					typeStr="Integer";
 				}
 			}
 			while (it.hasNext()) { //while there is something else keep going and print:
 				w.write("{");
 				w.newLine();
-				w.write("\"alias\":" + listaParam[i].toString() + "\"\n");
-				w.write("\"sourceField:\"" + it.next() + "\n");
-				w.write("\"type:\" \"" + typeStr + "\"\n");
+				w.write("\"alias\":" + listaParam[i].toString() + "\"\n"); //write on file the name of attribute
+				w.write("\"sourceField:\"" + it.next() + "\n"); //write on file sourcefield of attribute
+				w.write("\"type:\" \"" + typeStr + "\"\n"); //write on file the type of attributes used
 				w.write("},");
 				i++;
 			}
 			w.newLine();
 			w.close();
-		} catch (IOException e) {
+			System.out.println("File json getMetadata creato");
+			} catch (IOException e) {
 			e.printStackTrace();
 		}
 
@@ -73,29 +74,24 @@ public class Metadata {
 			
 			for(int i=0; i<firstLine.size();i++) { 
 				JSONObject metadata = new JSONObject();
-				metadata.put("alias", listaParam[i].getName());
-				metadata.put("sourceField", firstLine.get(i));
+				metadata.put("alias", listaParam[i].getName()); //write on file the name of attribute
+				metadata.put("sourceField", firstLine.get(i)); //write on file sourcefield of attribute
 				if(listaParam[i].getType()==typeStr.getClass()) {
 					typeStr="String";
 				}else if(listaParam[i].getType().equals(Integer.TYPE)) {
 					typeStr="Integer";
 				}
-				metadata.put("type:", typeStr);
-				metadataArray.add(metadata);
+				metadata.put("type:", typeStr); //write on file the type of attributes used
+				metadataArray.add(metadata); //Create a file that return object json with the metadata of class
 			}
 			w.write(metadataArray.toJSONString());
 			w.flush();
 			w.close();
+			System.out.println("File json getMetadata creato");
 		}catch(IOException | ClassNotFoundException e) {
 			e.printStackTrace();
 			
 		}
-	}
-
-	public static void main(String args[]) {
-		Metadata m = new Metadata();
-		m.toJsonMedataWithObject();
-		System.out.println("File json getMetadata creato");
 	}
 
 }

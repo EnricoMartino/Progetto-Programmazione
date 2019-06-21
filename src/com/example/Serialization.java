@@ -31,7 +31,7 @@ public class Serialization {
 				for (int i = 0; i < home.size(); i++) {
 					if (home.get(i).equals("") == true) { // if find in the cells of each position an empty cell
 															// then puts -1
-						home.set(i, "-1");
+						home.set(i, "0");
 					}
 
 				}
@@ -82,13 +82,6 @@ public class Serialization {
 		}
 		System.out.println("\nI dati serializzati sono: " + lista.size()); // Print the list size to see if
 																			// everything has been saved
-
-	}
-
-	public static void main(String[] args) {
-
-		Serialization s = new Serialization();
-		s.outputfile(s.serialize());
 
 	}
 
